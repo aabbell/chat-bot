@@ -8,11 +8,15 @@ const signinBox = document.querySelector(".signin-box")
 
 
 signupChoice.addEventListener("click",function(){
+    signinBox.style.display = "none"
     signupBox.style.display = "block"
+    
 
 })
-
 signinChoice.addEventListener("click",function(){
+    signupBox.style.display = "none"
     signinBox.style.display = "block"
+    
 })
+
 
