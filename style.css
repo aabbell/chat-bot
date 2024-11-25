@@ -1,0 +1,70 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.signin-box,
+.signup-box{
+    display:none;
+    width: 200px;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgb(0,0,0,0.3);
+    background-color: rgb(227,244,243);
+    border-radius:5%;
+}
+.form-input{
+    margin-bottom:15px;
+}
+
+button{
+    background-color: #4a59fd;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    margin: 15px;
+    color: white;
+}
+
+button:hover{
+    background-color:#1024ff;
+}
+input[type = "submit"]{
+    margin: 10px;
+    background-color: #4a59fd;
+    border: 100px;
+    border-radius: 5px;
+    padding: 6px;
+    color: white;
+}
+
+input[type = "submit"]:hover{
+    background-color: #1024ff;
+}
+
+
+/* 
+.form-box{
+    width: 200px;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgb(1,0,0,0.1);
+    background-color: rgb(227, 244, 243);
+    border-radius: 5%;
+}
+
+
+
+
+
+
+input[type = "text"],
+input[type = "password"]{
+    border: none;
+    border-radius: 5%;
+} */
+
