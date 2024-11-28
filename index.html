@@ -8,12 +8,14 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">Chat-bot</div>
+            <h2 class="title">Chat-bot</h2>
+            <div id="username-display" style="display: none; font-size: 1.2rem; margin-top: 10px;"></div>
 
 
         <div class="choices">
             <button id="signup-choice">Registor</button>
             <button id="signin-chioce">Sign In</button>
+            <button id="logout-choice">Logout</button>
         </div>
 
 
@@ -33,7 +35,7 @@
                 </div>
 
                 <div class="form-input">
-                    <input type="password" name="password" placeholder="Password">
+                    <input class = "password-input"type="password" name="password" placeholder="Password">
                 </div>
                 <div class="form-input-button">
                     <input type="submit" value="Sign up">
