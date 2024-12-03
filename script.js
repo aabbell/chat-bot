@@ -1,3 +1,67 @@
+
+import { GoogleGenerativeAI } from "https://cdn.skypack.dev/@google/generative-ai";
+
+
+
+const MODEL_NAME = "gemini-1.0-pro";
+const API_KEY = "your api";
+let chat;
+
+async function runChat() {
+
+        const genAI = new GoogleGenerativeAI(API_KEY);
+        const model = genAI.getGenerativeModel({ model: MODEL_NAME });
+        chat = model.startChat({ 
+            history: [],
+     });
+
+}
+
+async function handleChatInput() {
+    const askInput = document.querySelector(".ask-input");
+    const userMessage = askInput.value.trim();
+
+    const result = await chat.sendMessage(userMessage);
+    if (result.error) {
+        console.error(('AI Error:'), result.error.message);
+        return;
+        }
+        const response = result.response.text();
+        console.log(('AI:'), response);
+        const chatOutput = document.querySelector(".chat-output");
+        const userDiv = document.createElement("div");
+        userDiv.textContent = `You: ${userMessage}`;
+        userDiv.className = "user-message";
+    
+        const aiDiv = document.createElement("div");
+        aiDiv.textContent = `AI: ${response}`;
+        aiDiv.className = "ai-message";
+
+        chatOutput.appendChild(userDiv);
+        chatOutput.appendChild(aiDiv);
+
+        askInput.value = "";
+        }
+   
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    runChat();
+
+    const sendButton = document.querySelector(".send-button");
+    sendButton.addEventListener("click", handleChatInput);
+
+    // Optionally, allow pressing Enter to send a message
+    const askInput = document.querySelector(".ask-input");
+    askInput.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            handleChatInput();
+        }
+    });
+});
+
+const userAsk = document.querySelector(".ask-input").value
 const logout = document.getElementById('logout-choice')
 
 //variable for the sign in and sign up choices
@@ -11,7 +75,7 @@ const signinBox = document.querySelector(".signin-box")
 const formSignup = document.querySelector(".form-signup")
 const formSignin = document.querySelector(".form-signin")
 
-const inputConvo = document.querySelector(".input-convo")
+const inputConvo = document.querySelector(".chat-container")
 const passwordInput = document.querySelector(".password-input").value
 console.log(passwordInput)
 
@@ -74,7 +138,7 @@ formSignin.addEventListener("submit",function(e){
         return
     }
 
-    const isPassword = passwordInput === obj.password
+    const isPassword = user.password === obj.password
     console.log(user.password)
     console.log(obj.password)
     
@@ -163,33 +227,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
 
 
-// import dotenv from "dotenv"
-// import openAI from "openai"
-
-// dotenv.config()
-
-// const openai= new openAI({
-//     apiKey: process.env.api_key,
-// })
-
-// openai.chat.completions.create({
-//     model:"gpt-3.5-turbo",
-//     messages:[{role:"user",content:"Hello Chatgpt" }]
-// }).then(res => {
-//     console.log(res)
-// })
 
 
-// (async () => {
-//     try {
-//         const response = await openai.createChatCompletion({
-//             model:"text-davinci-003",
-//             prompt: "Hello, how are you?",
-//             max_tokens:50,
-//         })
-//         console.log(response.data.choices[0].text.trim())
-//     }catch(error){
-//         console.log("Error has occured", error.message)
-//     };
-    
-// });
+
+
