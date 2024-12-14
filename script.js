@@ -4,7 +4,7 @@ import { GoogleGenerativeAI } from "https://cdn.skypack.dev/@google/generative-a
 
 
 const MODEL_NAME = "gemini-1.0-pro";
-const API_KEY = "your api";
+const API_KEY = "AIzaSyDG687_HrvFDOzrwgDNVeIUsOZ_867_LUA";
 let chat;
 
 async function runChat() {
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-const userAsk = document.querySelector(".ask-input").value
+
 const logout = document.getElementById('logout-choice')
 
 //variable for the sign in and sign up choices
