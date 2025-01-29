@@ -4,10 +4,10 @@ import { GoogleGenerativeAI } from "https://cdn.skypack.dev/@google/generative-a
 
 
 const MODEL_NAME = "gemini-1.0-pro";
-const API_KEY = "AIzaSyDG687_HrvFDOzrwgDNVeIUsOZ_867_LUA";
+const API_KEY = "AIzaSyBw7OcDiV8iSb2igDlD84DezMY5nLbqQxo";
 let chat;
 
-async function runChat() {
+function runChat() {
 
         const genAI = new GoogleGenerativeAI(API_KEY);
         const model = genAI.getGenerativeModel({ model: MODEL_NAME });
@@ -76,8 +76,8 @@ const formSignup = document.querySelector(".form-signup")
 const formSignin = document.querySelector(".form-signin")
 
 const inputConvo = document.querySelector(".chat-container")
-const passwordInput = document.querySelector(".password-input").value
-console.log(passwordInput)
+
+
 
 
 signupChoice.addEventListener("click",function(){
@@ -124,14 +124,13 @@ formSignin.addEventListener("submit",function(e){
     const formData = new FormData(formSignin)
     const obj = Object.fromEntries(formData)
 
-    console.log(obj)
     
 
     
     const users = JSON.parse(localStorage.getItem('users')) || []
     
     const user = users.find(user => user.userName === obj.userName)
-    console.log(user)
+    
     
     if (!user){
         alert ("invalid username or password.")
@@ -139,8 +138,6 @@ formSignin.addEventListener("submit",function(e){
     }
 
     const isPassword = user.password === obj.password
-    console.log(user.password)
-    console.log(obj.password)
     
 
     if (isPassword){
